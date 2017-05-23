@@ -33,7 +33,7 @@ export default class SearchScreen extends React.Component {
                 <Header searchBar rounded noShadow>
                     <Item>
                         <Input placeholder='enter keyword...'
-                               onSubmitEditing={(event)=> images = this.getImages(event.nativeEvent.text)}/>
+                               onSubmitEditing={(event)=> this.getImages(event.nativeEvent.text)}/>
                     </Item>
                 </Header>
                 {myContent}
@@ -42,15 +42,21 @@ export default class SearchScreen extends React.Component {
     }
 
     async getImages(query: string) {
-        this.setState({loading:true});
+        this.setState({loading: true});
+        try {
 
-        let url = giphyUrl + query;
-        let response = await fetch(url);
-        let body = await response.json();
+            let url = giphyUrl + query;
+            let response = await fetch(url);
+            let body = await response.json();
 
-        this.setState({loading:false});
-        console.log(body);
-        return body;
+            await body;
+            this.setState({loading: false});
+            this.setState({images: body.data});
+            console.log("data downloaded");
+        }
+        catch(e){
+            this.setState({loading: false});
+        }
     }
 
 }
