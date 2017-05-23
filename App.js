@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import Expo from "expo";
 import {
+    StyleProvider,
     Container,
     Header,
     Body,
@@ -19,16 +20,11 @@ import {
     Right,
     Icon
 } from "native-base";
+import getTheme from "./native-base-theme/components";
+import commonColor from "./native-base-theme/variables/commonColor";
 
 
 const window = Dimensions.get('window');
-
-const Colors = {
-    BACKGROUND: '#FFF',
-    SHADOW: '#000000',
-    RED: '#FF615C',
-    DARKRED: '#AD4047',
-};
 
 
 export default class App extends Component {
@@ -50,53 +46,44 @@ export default class App extends Component {
             return <Expo.AppLoading />;
         }
         return (
-            <Container>
-                <View style={styles.statusBar}>
-                    <StatusBar backgroundColor='#AD4047' barStyle="light-content"/>
-                </View>
-                <Header style={StyleSheet.flatten(styles.appBar)}>
-                    <Left>
-                        <Button transparent>
-                            <Icon name='arrow-back'/>
-                        </Button>
-                    </Left>
-                    <Body>
-                    <Title>Header</Title>
-                    </Body>
-                    <Right>
-                        <Button transparent>
-                            <Icon name='menu'/>
-                        </Button>
-                    </Right>
-                </Header>
-            </Container>
+            <StyleProvider style={getTheme(commonColor)}>
+                <Container>
+                    <View style={styles.statusBar}>
+                        <StatusBar backgroundColor='#AD4047' barStyle="light-content"/>
+                    </View>
+                    <Header>
+                        <Left>
+                            <Button transparent>
+                                <Icon name='arrow-back'/>
+                            </Button>
+                        </Left>
+                        <Body>
+                        <Title>Header</Title>
+                        </Body>
+                        <Right>
+                            <Button transparent>
+                                <Icon name='menu'/>
+                            </Button>
+                        </Right>
+                    </Header>
+                </Container>
+            </StyleProvider>
         )
     }
 }
 
 
-const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 20 : Expo.Constants.statusBarHeight;
-const APPBAR_HEIGHT = Platform.OS === 'ios' ? 44 : 56;
-const APPBAR_MARGIN_TOP = Platform.OS === 'ios' ? 0 : Expo.Constants.statusBarHeight;
-console.log(STATUSBAR_HEIGHT, APPBAR_HEIGHT, APPBAR_MARGIN_TOP);
-
-
+const Colors = {
+    BACKGROUND: '#FFF',
+    SHADOW: '#000000',
+    RED: '#FF615C',
+    DARKRED: '#AD4047',
+};
+const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 0 : Expo.Constants.statusBarHeight;
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#FFF'
-    },
     statusBar: {
         backgroundColor: Colors.DARKRED,
         height: STATUSBAR_HEIGHT,
-    },
-    appBar: {
-        backgroundColor: Colors.RED,
-        height: APPBAR_HEIGHT,
-        // marginTop: APPBAR_MARGIN_TOP
-    },
-    content: {
-        flex: 1
     }
 });
 
