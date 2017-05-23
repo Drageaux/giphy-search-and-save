@@ -18,7 +18,7 @@
   "jest": {
     "preset": "jest-expo",
     "transformIgnorePatterns": [
-      "node_modules/(?!react-native|expo|native-base|native-base-shoutem-theme|@shoutem)"
+      "node_modules/(?!react-native|expo|native-base|native-base-shoutem-theme|@shoutem|@shoutem/ui|@shoutem/theme|@expo)"
     ],
     "collectCoverage": true,
     "verbose": true

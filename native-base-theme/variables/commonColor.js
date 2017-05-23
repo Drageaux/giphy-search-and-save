@@ -10,6 +10,11 @@ const deviceWidth = Dimensions.get('window').width;
 const platform = Platform.OS;
 const platformStyle = undefined;
 
+const Colors = {
+    RED: '#FF615C',
+    DARKRED: '#AD4047',
+};
+
 export default {
     platformStyle,
     platform,
@@ -140,16 +145,15 @@ export default {
 
     // Footer
     footerHeight: 55,
-    footerDefaultBg: '#2874F0',
+    footerDefaultBg: '#FFF',
 
 
     // FooterTab
-    tabBarTextColor: '#8bb3f4',
+    tabBarTextColor: '#000',
     tabBarTextSize: (platform === 'ios') ? 14 : 11,
     activeTab: (platform === 'ios') ? '#007aff' : '#fff',
-    sTabBarActiveTextColor: '#007aff',
-    tabBarActiveTextColor: '#fff',
-    tabActiveBgColor: (platform === 'ios') ? '#1569f4' : undefined,
+    sTabBarActiveTextColor: Colors.RED,
+    tabBarActiveTextColor: Colors.RED,
 
     // Tab
     tabDefaultBg: '#2874F0',
@@ -162,16 +166,15 @@ export default {
 
     // Header
     toolbarBtnColor: '#fff',
-    toolbarDefaultBg: '#FF615C',
+    toolbarDefaultBg: Colors.RED,
     toolbarHeight: (platform === 'ios') ? 64 : 56,
     toolbarIconSize: (platform === 'ios') ? 20 : 22,
     toolbarSearchIconSize: (platform === 'ios') ? 20 : 23,
-    toolbarInputColor: (platform === 'ios') ? '#CECDD2' : '#fff',
+    toolbarInputColor: '#fff',
     searchBarHeight: (platform === 'ios') ? 30 : 40,
     toolbarInverseBg: '#222',
     toolbarTextColor: '#fff',
     iosStatusbar: 'light-content',
-    toolbarDefaultBorder: '#2874F0',
     get statusBarColor() {
         return color(this.toolbarDefaultBg).darken(0.2).hexString();
     },
