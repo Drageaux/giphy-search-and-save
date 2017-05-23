@@ -34,9 +34,10 @@ export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            fontsAreLoaded: false,
             tab1: true,
             tab2: false,
-            fontsAreLoaded: false,
+            title: 'Search'
         };
     }
 
@@ -44,6 +45,7 @@ export default class App extends Component {
         this.setState({
             tab1: true,
             tab2: false,
+            title: 'Search'
         });
     }
 
@@ -51,6 +53,7 @@ export default class App extends Component {
         this.setState({
             tab1: false,
             tab2: true,
+            title: 'Saved Images'
         });
     }
 
@@ -79,12 +82,11 @@ export default class App extends Component {
                     <View style={styles.statusBar}>
                         <StatusBar backgroundColor='#AD4047' barStyle='light-content'/>
                     </View>
-                    <Header searchBar>
+                    <Header searchBar noShadow>
                         <Body>
-                        <Title>Search</Title>
+                        <Title>{this.state.title}</Title>
                         </Body>
                     </Header>
-
 
                     <Content>
                         <ScreenComponent></ScreenComponent>
