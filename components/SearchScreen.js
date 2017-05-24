@@ -37,6 +37,7 @@ export default class SearchScreen extends React.Component {
                 <Header searchBar rounded noShadow>
                     <Item>
                         <Input placeholder='enter keyword...'
+                               value='cat'
                                onSubmitEditing={(event)=> this.getImages(event.nativeEvent.text)}/>
                     </Item>
                 </Header>
@@ -62,7 +63,6 @@ export default class SearchScreen extends React.Component {
             this.setState({loading: false});
         }
     }
-
 }
 
 AppRegistry.registerComponent('SearchScreen', () => SearchScreen);
