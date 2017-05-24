@@ -12,7 +12,6 @@ import {
     StyleProvider,
     Container,
     Header,
-    Content,
     Footer,
     FooterTab,
     Body,
@@ -78,7 +77,7 @@ export default class App extends Component {
         }
         return (
             <StyleProvider style={getTheme(commonColor)}>
-                <Container>
+                <View style={styles.container}>
                     <View style={styles.statusBar}>
                         <StatusBar backgroundColor='#AD4047' barStyle='light-content'/>
                     </View>
@@ -88,9 +87,7 @@ export default class App extends Component {
                         </Body>
                     </Header>
 
-                    <Content>
-                        <ScreenComponent></ScreenComponent>
-                    </Content>
+                    <ScreenComponent></ScreenComponent>
 
                     <Footer>
                         <FooterTab>
@@ -104,7 +101,7 @@ export default class App extends Component {
                             </Button>
                         </FooterTab>
                     </Footer>
-                </Container>
+                </View>
             </StyleProvider>
         )
     }
@@ -117,6 +114,9 @@ const Colors = {
 };
 const STATUSBAR_HEIGHT = Expo.Constants.statusBarHeight;
 const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    },
     statusBar: {
         backgroundColor: Colors.DARKRED,
         height: STATUSBAR_HEIGHT

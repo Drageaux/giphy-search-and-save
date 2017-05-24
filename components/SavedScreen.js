@@ -11,7 +11,9 @@ import {Text} from "native-base";
 
 export default class SavedScreen extends React.Component {
     render() {
-        return <Text>List of saved images</Text>
+        return (
+            <View style={{flex:1}}><Text>List of saved images</Text></View>
+        )
     }
 }
 
