@@ -11,7 +11,6 @@ import {
 
 export default class ImageList extends React.Component {
 
-
     constructor(props) {
         super(props);
         this.state = {
@@ -30,7 +29,7 @@ export default class ImageList extends React.Component {
             console.log(this.state.images);
             imageList = images.map((image, index) =>
                 <Image style={styles.img}
-                       key={image.id}
+                       key={index}
                        source={{uri:image.images.fixed_height.url}}/>);
         } else {
             imageList = <Text>No image results found</Text>;

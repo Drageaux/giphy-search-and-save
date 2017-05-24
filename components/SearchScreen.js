@@ -27,17 +27,16 @@ export default class SearchScreen extends React.Component {
     render() {
         let myContent = null;
         if (this.state.loading) {
-            myContent = <Spinner/>;
+            myContent = <Spinner color="#FF615C"/>;
         } else {
             myContent = <ImageList images={this.state.images}/>;
         }
 
         return (
             <View style={{flex:1}}>
-                <Header searchBar rounded noShadow>
+                <Header searchBar noShadow noBorder>
                     <Item>
                         <Input placeholder='enter keyword...'
-                               value='cat'
                                onSubmitEditing={(event)=> this.getImages(event.nativeEvent.text)}/>
                     </Item>
                 </Header>
