@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {
     AppRegistry,
+    Dimensions,
     View,
     Image
 } from "react-native";
@@ -35,9 +36,11 @@ export default class ImageList extends React.Component {
             imageList = <Text>No image results found</Text>;
         }
         return (
-            <Content padder>
-                <View style={styles.grid}>
-                    {imageList}
+            <Content>
+                <View style={styles.gridContainer}>
+                    <View style={styles.grid}>
+                        {imageList}
+                    </View>
                 </View>
             </Content>
         )
@@ -45,16 +48,26 @@ export default class ImageList extends React.Component {
 }
 
 
+const deviceHeight = Dimensions.get('window').height;
+const deviceWidth = Dimensions.get('window').width;
 const styles = {
+    gridContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
     grid: {
+        flex: 1,
         flexDirection: 'row',
         flexWrap: 'wrap',
-        justifyContent: 'space-around',
+        justifyContent: 'flex-start',
     },
     img: {
-        width: 100,
-        height: 100,
+        width: (deviceWidth / 3)-2,
+        height: (deviceWidth / 3)-2,
         justifyContent: 'center',
+        marginRight: 1,
+        marginLeft: 1
     }
 };
 

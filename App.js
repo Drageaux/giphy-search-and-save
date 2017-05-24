@@ -81,7 +81,7 @@ export default class App extends Component {
                     <View style={styles.statusBar}>
                         <StatusBar backgroundColor='#AD4047' barStyle='light-content'/>
                     </View>
-                    <Header searchBar noShadow noBorder>
+                    <Header searchBar noShadow noBorder noPaddingBottom>
                         <Body>
                         <Title>{this.state.title}</Title>
                         </Body>

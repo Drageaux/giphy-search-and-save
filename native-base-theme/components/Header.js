@@ -65,6 +65,9 @@ export default (variables = variable) => {
             shadowOpacity: null,
             borderBottomWidth: null,
         },
+        '.noPaddingBottom': {
+            paddingBottom: 0,
+        },
         'NativeBase.Button': {
             justifyContent: 'center',
             alignSelf: 'center',
